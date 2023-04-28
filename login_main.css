@@ -1,0 +1,56 @@
+div{
+    margin: 0;
+    padding: 0;
+}
+#content,
+#content2{
+    margin: 0 auto;
+    text-align: center;
+    width: 800px;
+}
+div{
+    padding-top : 10px;
+}
+
+#content.pc,
+#content2.pc{
+    width: 600px;
+}
+
+#content.mobile,
+ #content2.mobile {
+    width: 300px;
+}
+
+.mobile #login #login1,
+#login2{
+    height: 50px;
+    width: 100%;
+    float: left;
+}
+
+.mobile #pwd #pwd1,
+#pwd2,
+#btn,
+#news1{
+    height: 50px;
+    width: 100%;
+    float: left;
+}
+
+.pc #login1,
+#login2,
+#pwd1,
+#pwd2{
+    height: 40px;
+    width: 50%;
+    float: left;
+}
+
+#news1, #login1, #pwd1, #btn, #login2, #pwd2 {
+    background: rgb(255, 220, 220);
+    border: 1px solid rgb(170, 142, 142);
+} #login2, #pwd2 {
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(170, 142, 142);
+}

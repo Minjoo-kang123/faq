@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery responsive2</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='login_main.css'>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+
+    <script>
+        $(function () {
+            $(window).resize(function () {
+                var width = $(window).width();
+                if (width >= 992) {
+                    $("#content").removeClass().addClass("pc");
+                    $("#content2").removeClass().addClass("pc");
+                    $("#login1").css("width", "24.7%");
+                    $("#login2").css("width", "74.6%");
+                    $("#pwd1").css("width", "24.7%");
+                    $("#pwd2").css("width", "74.6%");
+                    $("#login_input").attr("size", "40");
+                    $("#password").attr("size", "40");
+                } else {
+                    $("#content").removeClass().addClass("mobile");
+                    $("#content2").removeClass().addClass("mobile");
+                    $("#login1").css("width", "100%");
+                    $("#login2").css("width", "100%");
+                    $("#pwd1").css("width", "100%");
+                    $("#pwd2").css("width", "100%");
+                    $("#login_input").attr("size", "20");
+                    $("#password").attr("size", "20");
+                }
+            });
+            $(window).trigger("resize");
+
+            var text1 = $('#login_input');
+            text1.focus(function () {
+                text1.val('');
+            });
+
+            var text2 = $('#password');
+            text2.focus(function () {
+                text2.val('');
+                text2.attr('type', 'password');
+            });
+
+            $('.lgbtn').mouseover(function () {
+                $(".lgbtn").css("background", "pink");
+                $(".lgbtn").css("border", "1px solid white");
+                $(".lgbtn").css("color", "white");
+            });
+            $('.lgbtn').mouseout(function () {
+                $(".lgbtn").css("background", "");
+                $(".lgbtn").css("border", "");
+                $(".lgbtn").css("color", "");
+            });
+            $('#lgin').click(function () {
+                id = $("#login_input").val();
+                pwd = $("#password").val();
+                if (id == "아이디" || pwd == "비밀번호") {
+                    alert("아이디 혹은 비밀번호를 입력해주세요.");
+                } else if (id == "" || pwd == "") {
+                    alert("아이디 혹은 비밀번호를 입력해주세요.");
+                } else {
+                    $("#content").css("display", "none");
+                    $("#content2").css("display", "block");
+                }
+            });
+            $('#lgout').click(function () {
+                $("#content").css("display", "block");
+                $("#content2").css("display", "none");
+            });
+        });
+        $(document).ready(function () {
+            $('#login_input').val('아이디');
+            $('#password').val('비밀번호');
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="content" style="display : bolck">
+        <div id="news">
+            <div id="news1">
+
+            </div>
+        </div>
+        <div id="login">
+            <div id="login1">아이디</div>
+            <div id="login2"><input type="text" id="login_input" size="40" style="height: 25px;" /></div>
+        </div>
+        <div id="pwd">
+            <div id="pwd1">비밀번호</div>
+            <div id="pwd2"><input type="text" id="password" size="40" style="height: 25px;" /></div>
+        </div>
+        <div id="btn">
+            <button class="lgbtn" id="lgin">로그인하기</button>
+        </div>
+    </div>
+    <div id="content2" style="display : none">
+        로그인에 성공했습니다.
+        <div id="btn">
+            <button class="lgbtn" id="lgout">로그아웃하기</button>
+        </div>
+    </div>
+</body>
+
+</html>
