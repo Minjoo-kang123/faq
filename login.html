@@ -9,11 +9,9 @@
     <link rel='stylesheet' type='text/css' media='screen' href='login_main.css'>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-
+    <link rel="stylesheet" href="jqeuery_mobile.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="jqeuery_mobile.js"></script>
 
 
 
@@ -73,13 +71,8 @@
                 } else if (id == "" || pwd == "") {
                     alert("아이디 혹은 비밀번호를 입력해주세요.");
                 } else {
-                    $("#content").css("display", "none");
-                    $("#content2").css("display", "block");
+                    location.href = "#page2";
                 }
-            });
-            $('#lgout').click(function () {
-                $("#content").css("display", "block");
-                $("#content2").css("display", "none");
             });
         });
         $(document).ready(function () {
@@ -91,30 +84,34 @@
 </head>
 
 <body>
-    <div id="content" style="display : bolck">
-        <div id="news">
-            <div id="news1">
+    <section id="page1" data-role="page">
+        <div id="content" data-role="content">
+            <div id="news">
+                <div id="news1">
 
+                </div>
+            </div>
+            <div id="login">
+                <div id="login1">아이디</div>
+                <div id="login2"><input type="text" id="login_input" size="40" style="height: 25px;" /></div>
+            </div>
+            <div id="pwd">
+                <div id="pwd1">비밀번호</div>
+                <div id="pwd2"><input type="text" id="password" size="40" style="height: 25px;" /></div>
+            </div>
+            <div id="btn">
+                <button class="lgbtn" id="lgin">로그인하기</button>
             </div>
         </div>
-        <div id="login">
-            <div id="login1">아이디</div>
-            <div id="login2"><input type="text" id="login_input" size="40" style="height: 25px;" /></div>
+    </section>
+    <section id="page2" data-role="page">
+        <div id="content2" data-role="content">
+            로그인에 성공했습니다.
+            <div id="btn">
+                <a href="#page1"><button class="lgbtn">로그아웃하기</button></a>
+            </div>
         </div>
-        <div id="pwd">
-            <div id="pwd1">비밀번호</div>
-            <div id="pwd2"><input type="text" id="password" size="40" style="height: 25px;" /></div>
-        </div>
-        <div id="btn">
-            <button class="lgbtn" id="lgin">로그인하기</button>
-        </div>
-    </div>
-    <div id="content2" style="display : none">
-        로그인에 성공했습니다.
-        <div id="btn">
-            <button class="lgbtn" id="lgout">로그아웃하기</button>
-        </div>
-    </div>
+    </section>
 </body>
 
 </html>
