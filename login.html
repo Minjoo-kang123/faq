@@ -8,10 +8,10 @@
     <title>jquery responsive2</title>
     <link rel='stylesheet' type='text/css' media='screen' href='login_main.css'>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="jquery_mobile.css" />
-    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- 모바일 디바이스 설정 -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script><!--제이쿼리 연결 -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script><!-- 제이쿼리모바일 연결 -->
 
 
 
@@ -48,8 +48,8 @@
 
             var text2 = $('#password');
             text2.focus(function () {
-                text2.val('');
                 text2.attr('type', 'password');
+                text2.val('');
             });
 
             $('.lgbtn').mouseover(function () {
@@ -72,6 +72,10 @@
                 } else {
                     location.href = "#page2";
                 }
+            });
+            $('#lgout').click(function () {
+                $("#content").css("display", "block");
+                $("#content2").css("display", "none");
             });
         });
         $(document).ready(function () {
@@ -99,7 +103,7 @@
                 <div id="pwd2"><input type="text" id="password" size="40" style="height: 25px;" /></div>
             </div>
             <div id="btn">
-                <button class="lgbtn" id="lgin" value="">로그인</button>
+                <button class="lgbtn" id="lgin">로그인하기</button>
             </div>
         </div>
     </section>
@@ -107,7 +111,7 @@
         <div id="content2" data-role="content">
             로그인에 성공했습니다.
             <div id="btn">
-                <a href="#page1"><button class="lgbtn" value="">로그아웃</button></a>
+                <a href="#page1"><button class="lgbtn" id="lgout">로그아웃하기</button></a>
             </div>
         </div>
     </section>
